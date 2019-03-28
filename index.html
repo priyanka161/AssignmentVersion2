@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<title>Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+    .slidecontainer {
+      width: 100%;
+    }
+    
+    .slider {
+      -webkit-appearance: none;
+      width: 79%;
+      height: 5px;
+      border-radius: 5px;
+      background: #d3d3d3;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+    
+    .slider:hover {
+      opacity: 1;
+    }
+    
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 15px;
+      border-radius: 50%;
+      background: steelblue;
+      cursor: pointer;
+    }
+    
+    .slider::-moz-range-thumb {
+      width: 25px;
+      height: 1px;
+      border-radius: 50%;
+      background: #4CAF50;
+      cursor: pointer;
+    }
+    li {
+      width: 2em;
+      height: 2em;
+      text-align: center;
+      line-height: 2em;
+      border-radius: 1em;
+      background: dodgerblue;
+      margin: 0 1em;
+      display: inline-block;
+      color: green;
+      position: relative;
+    }
+    
+    li::before{
+      content: '';
+      position: absolute;
+      top: .9em;
+      left: -4em;
+      width: 4em;
+      height: .2em;
+      background: dodgerblue;
+      z-index: -1;
+    }
+    li:first-child::before {
+      display: none;
+    }
+    
+    .active {
+      background: dodgerblue;
+    }
+    
+    .active ~ li {
+      background: lightblue;
+    }
+    
+    .active ~ li::before {
+      background: lightblue;
+    }
+    li{
+    border:solid;
+    }
+    
+    </style>
+    <script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+    
+    slider.oninput = function() {
+      output.innerHTML = this.value;
+    }
+    </script>
+<body ng-controller="mainCtrl">
+<div class="nav">
+    <div class="toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <div class="middle">
+        <p>
+            <span>
+                CA
+            </span> New House <i class="fa fa-th" aria-hidden="true"></i>
+
+        </p>
+    </div>
+    <div class="notification">
+        <i class="fa fa-bell" aria-hidden="true"></i>
+    </div>
+    <div class="drop">
+        <p>
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> Cameron Svensson <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </p>
+    </div>
+</div>
+<div class="side-nav">
+    <div class="menus">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <i class="fa fa-square active" aria-hidden="true"></i> 
+        <i class="fa fa-square-o" aria-hidden="true"></i>
+        <i class="fa fa-folder-open-o" aria-hidden="true"></i> 
+    </div>
+</div>
+<section>
+    <div class="panel">
+            <div class="progress">
+                    <div></div>
+                    <div class="prog">
+                        <div class="line"></div> 
+                        <div class="prog-inline">
+                            <div class="passed">
+                                <i class="fa fa fa-check"></i>
+                            </div>
+                            <div class="passed">
+                                <i class="fa fa fa-check"></i>
+                            </div>
+                            <div>
+                                <p class="highlight">Step 3 <br>Simulation</p>
+                                <span class="current"></span>
+                            </div>
+                            <div></div>
+                            <div></div>
+                        </div> 
+                    </div>
+                    <div></div>
+                </div>
+        <div class="sub-panel-one">
+            <div class="sub-title">
+                <p>Simulation</p>
+            </div>
+            <div class="sub-range">
+                   
+                               </div>
+            <div class="sub-button">
+                <button>Continue 
+                    <span>
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i> 
+                    </span
+                ></button>
+            </div>
+        </div>
+        <div class="sub-panel-two">
+            <div class="sub-panel-two-title"> 
+                <p>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    No user risk score yet
+                </p>
+            </div>
+            <div class="sub-panel-two-list"> 
+                <div class="list">
+                    <span style="background-color: grey;"></span>
+                    Conservtive
+                </div>
+                <div class="list" stytle="list-style-type:circle;">
+                    <span style="background-color: blue;"></span>
+                    Balanced
+                </div>
+                <div class="list act">
+                    <span style="background-color: yellow;"></span>
+                    Aggresive
+                </div>
+                <div class="list">
+                    <span style="background-color: red;"></span>
+                    Extreme
+                </div>
+            </div>
+        </div>
+        <div class="sub-panel-three">
+            <div class="slide">
+                <div style="margin-left:18px;margin-right:11px";>
+                <div></div>
+                <p><span id="demo"></span></p>
+                <p><span id="demo"></span></p>
+                <p><span id="demo"></span></p>
+                    <div>target <span style="float:right">$50000</span></div>
+    
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="40" class="slider" id="myRange">
+      
+    </div>
+    <p><span id="demo"></span></p>
+    <p><span id="demo"></span></p>
+    <div>Initial Deposit <span style="float:right">$20000</span></div>
+    <p><span id="demo"></span></p>
+    <p><span id="demo"></span></p>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="65" class="slider" id="myRange">
+      
+    </div>
+    <p><span id="demo"></span></p>
+    <div>Monthly Payment <span style="float:right">$2000</span></div>
+    
+    <div class="slidecontainer">
+      <input type="range" min="1" max="100" value="25" class="slider" id="myRange">
+      
+    </div>
+    <p><span id="demo"></span></p>
+    <p><span id="demo"></span></p>
+    <p><span id="demo"></span></p>
+     <div><p style="margin-top:3em">Period</p>
+        <span ><p style="float:right;margin-top:-35px;color:steelblue">-7 years +</p><span></div> 
+    <p><span id="demo"></span></p>
+    <div>
+        <button type="button" class="cancel">Cancel</button>
+        <span><button type="button" class="default">Default</button></span>
+    </div>
+</div>
+            </div>
+            <div class="chart">
+                <div class="chart-one"> 
+                    <div class="highlight1">
+                        <div>
+                            <p>Projection</p>
+                        </div>
+                      <div>
+                            <p style="border-bottom: 1px solid blue; padding-bottom: 6px"><b>Performance</b></p>
+                      </div>
+                    </div>
+                    <div id="chart">
+
+                    </div>
+                    <div style="margin-left: 15em;margin-top: 1em;border-color:rgb(196, 196, 196);">
+                        <button type=button style="background-color:#DDDDDD;
+                    ;width: 6em;
+            height: 30px;">10years</button>
+                        <span><button type="button" style="margin-left: -4px;width:6em;height:30px;background-color:white";>20years</button></span>
+                    </div>
+                </div>
+                <div class="chart-two"> 
+                   <b><p>HISTORY</p></b> 
+   <div>
+       Average performance <span style="float:right;margin-right:2em;font-size:12px;color:black">20y</span>
+       <h2 style="color:steelblue;margin-top:1px">+35.2%</h2>
+   </div>
+   <div>
+    The best performance <span style="float:right;margin-right:2em;font-size:12px;color:black">2013</span>
+    <h2 style="color:steelblue;margin-top:1px">+65.2%</h2>
+</div>
+<div>
+    The worst performance <span style="float:right;margin-right:2em;font-size:12px;color:black">2016</span>
+    <h2 style="color:red;margin-top:1px">-20.2%</h2>
+</div>
+<h2 style="font-size: 13px">Rate</h2>
+<div class="progressive"> </div>
+
+<button type="button" class="view">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://d3js.org/d3.v3.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
